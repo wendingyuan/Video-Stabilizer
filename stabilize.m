@@ -189,8 +189,8 @@ end
 function [BW, color] = load_video(input_folder, file_type, video_length)
 
     for i = 1:video_length
-        read_path = sprintf('%s/%d', input_folder, i);
-        frame = imread(read_path, file_type);
+        read_path = sprintf('%s/%d', input_folder,i);
+        frame = imread([read_path,file_type]);
         frame = frame(:,:,1:3);
         color(:,:,:,i) = frame;
         BW(:,:,i) = double(rgb2gray(frame));
